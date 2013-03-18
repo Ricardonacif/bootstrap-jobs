@@ -9,15 +9,15 @@
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @job.description %></dd>
   <dt><strong><%= model_class.human_attribute_name(:filled) %>:</strong></dt>
-  <dd><%= @job.filled %></dd>
+  <dd><%= @job.filled? ? "Sim" : "Não" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:company_name) %>:</strong></dt>
   <dd><%= @job.company_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:website) %>:</strong></dt>
   <dd><%= @job.website %></dd>
   <dt><strong><%= model_class.human_attribute_name(:contact_email) %>:</strong></dt>
   <dd><%= @job.contact_email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
-  <dd><%= @job.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user) %>:</strong></dt>
+  <dd><%= @job.user.name %></dd>
 </dl>
 
 <div class="form-actions">

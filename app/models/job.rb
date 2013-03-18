@@ -8,4 +8,8 @@ class Job < ActiveRecord::Base
 
   scope :already_filled, where(filled: false)
   scope :not_filled, where(filled: true)
+
+  def filled?
+    filled
+  end
 end
