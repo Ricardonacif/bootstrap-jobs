@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318020530) do
+ActiveRecord::Schema.define(:version => 20130318041051) do
 
   create_table "jobs", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.string   "filled"
+    t.boolean  "filled",        :default => false
     t.string   "company_name"
     t.string   "website"
     t.string   "contact_email"
     t.string   "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"

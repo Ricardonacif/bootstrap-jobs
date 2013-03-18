@@ -24,7 +24,18 @@ module Jobs
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
-
+    config.assets.initialize_on_precompile = false
+    config.before_configuration do
+      I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+      I18n.locale = "pt-BR"
+      I18n.default_locale = "pt-BR"
+      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+      config.i18n.locale = "pt-BR"
+      # bypasses rails bug with i18n in production\
+      I18n.reload!
+      config.i18n.reload!
+    end
+    
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
